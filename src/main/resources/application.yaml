@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/cloudVendor
+    url: jdbc:mysql://localhost:3306/cloudvendor
     username: root
-    password: dummy
+    password: root
 
   jpa:
     hibernate:

@@ -2,7 +2,7 @@ package com.learning.CloudVendor.service;
 
 import com.learning.CloudVendor.exception.CloudVendorNotFoundException;
 import com.learning.CloudVendor.model.CloudVendor;
-import com.learning.CloudVendor.repository.CloudVendorRepositoryImpl;
+import com.learning.CloudVendor.repository.CloudVendorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,8 +11,11 @@ import java.util.List;
 @Service
 public class CloudVendorServiceImpl implements CloudVendorService{
 
-    @Autowired
-    private CloudVendorRepositoryImpl cloudVendorRepositoryImpl;
+
+    private CloudVendorRepository cloudVendorRepositoryImpl;
+
+    public CloudVendorServiceImpl(CloudVendorRepository cloudVendorRepository) {
+    }
 
     @Override
     public String createCloudVendor(CloudVendor cloudVendor) {

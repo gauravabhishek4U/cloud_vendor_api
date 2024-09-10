@@ -1,8 +1,11 @@
 package com.learning.CloudVendor.controller;
 
 import com.learning.CloudVendor.model.CloudVendor;
+import com.learning.CloudVendor.response.ResponseHandler;
 import com.learning.CloudVendor.service.CloudVendorServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,9 +19,9 @@ public class CloudVendorController {
 
     // Get specific cloud vendor details
     @GetMapping("{vendorId}")
-    public CloudVendor getCloudVendorDetails(@PathVariable("vendorId") Long vendorId){
+    public ResponseEntity<Object> getCloudVendorDetails(@PathVariable("vendorId") Long vendorId){
         CloudVendor cloudVendor = cloudVendorServiceImpl.getCloudVendor(vendorId);
-        return cloudVendor;
+        return ResponseHandler.responseBuilder("Requested Cloud Vendor Details are : ", HttpStatus.FOUND, cloudVendor);
     }
 
     // Get All cloud vendor details
